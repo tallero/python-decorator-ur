@@ -3,7 +3,7 @@
 
 pkgname=('python-decorator' 'python2-decorator')
 pkgver=3.3.3
-pkgrel=1
+pkgrel=2
 pkgdesc='Python Decorator module'
 arch=('any')
 url='http://pypi.python.org/pypi/decorator'
@@ -20,7 +20,7 @@ build() {
 
   cd "$srcdir/decorator-$pkgver"
 
-  python setup.py build
+  python3 setup.py build
 
   cd "$srcdir/decorator2-$pkgver"
 
@@ -41,7 +41,7 @@ package_python-decorator() {
 depends=('python')
   cd "${srcdir}/decorator-${pkgver}"
 
-  python setup.py install --root="${pkgdir}" --optimize=1
+  python3 setup.py install --root="${pkgdir}" --optimize=1
 
   install -D -m644 "${srcdir}/LICENSE.txt" \
     "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
